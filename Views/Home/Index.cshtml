@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<div class="jumbotron">
+    <h1>TIME MANAGEMENT APPLICATION</h1>
+    <p class="lead">Time management application allows an already registered user to login, add multiple modules, capture relevant module information and view self study hours per module. It also allows the user to register </p>
+
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Getting started</h2>
+        <p>
+            Time management application gives you a powerful, patterns-based way to add modules to the website with it been stord in the database
+        </p>
+       
+    </div>
+    <div class="col-md-4">
+        <h2>REGISTER</h2>
+        <p>Allows a user to register to use the platform</p>
+        <div>
+            @Html.ActionLink("Register new user account", "Register")
+        </div>
+
+    </div>
+    <div class="col-md-4">
+        <h2>LOGIN</h2>
+        <p>Allows an already registered user to login and proceed as usual</p>
+        <div>
+            @Html.ActionLink("Login", "Login")
+        </div>
+    </div>
+</div>

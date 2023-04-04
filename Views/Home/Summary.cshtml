@@ -1,0 +1,85 @@
+﻿
+@model IEnumerable<PROG6212POE.Models.StudentModuleInfo>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>SUMMARY INFORMATION</h4>
+
+<p>Below is where all summary information can be viewed, module and study hour details.</p>
+
+
+@*For the display of the summary info*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Code)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Module_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Number_of_Credits)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Class_hours_per_week)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Number_of_weeks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.start_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SelfStudyHours)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Day_Of_Week)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var sum in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => sum.Code)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => sum.Module_Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => sum.Number_of_Credits)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => sum.Class_hours_per_week)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => sum.Number_of_weeks)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => sum.start_date)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => sum.SelfStudyHours)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => sum.Day_Of_Week)
+    </td>
+    <td>
+    </td>
+</tr>
+    }
+
+</table>
+
+<div>
+    <a href=@Url.Action("StudyHours", "Home")>Back</a>
+</div>
+
+<div>
+    <a href=@Url.Action("Login", "Home")>Log Out</a>
+</div>
+
+

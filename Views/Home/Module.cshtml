@@ -1,0 +1,106 @@
+﻿@model PROG6212POE.Models.StudentModuleInfo
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<body>
+    <script>
+        function storeOption(day) {
+            var select = document.getElementById("DateSelect");
+            var value = select.options[select.selectedIndex].value;
+            document.getElementById("SelectedValue").value = value;
+        }
+    </script>
+
+    @using (Html.BeginForm())
+    {
+
+<div class="form-horizontal">
+    <h4> STUDENT MODULE INFORMATION</h4>
+    <p>Add a new module</p>
+    <hr />
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Code, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-4">
+            @Html.EditorFor(model => model.Code, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Module_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-4">
+            @Html.EditorFor(model => model.Module_Name, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Number_of_Credits, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-4">
+            @Html.EditorFor(model => model.Number_of_Credits, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Class_hours_per_week, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-4">
+            @Html.EditorFor(model => model.Class_hours_per_week, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Number_of_weeks, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-4">
+            @Html.EditorFor(model => model.Number_of_weeks, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.start_date, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-4">
+            @Html.EditorFor(model => model.start_date, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Day_Of_Week, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-4">
+            <select class="form-control" id="DateSelect" onchange="storeOption()" aria-label="OptionSelect">
+                <option selected>Select a day of the week</option>
+
+                @foreach (var day in Model.Days_Of_Week)
+                {
+                    <option value="@day">
+                        @day
+                    </option>
+                }
+            </select>
+        </div>
+    </div>
+
+    
+    <div class="form-group">
+        <input type="hidden" id="SelectedValue" name="SelectedValue" value="SelectedValue" />
+
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Add" class="btn btn-info" />
+    </div>
+
+    <div>
+        <a href=@Url.Action("Module", "Home")>Add another module</a>
+    </div>
+
+    <div>
+        <a href=@Url.Action("StudyHours", "Home")>Next</a>
+    </div>
+
+</div>
+    }
+
+
+</body>
+
